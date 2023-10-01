@@ -1,6 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+############################################################################
+
+# Exercise 1
+
 # seeding the random number generator with a fixed value so the
 # same random array is generated each time
 np.random.seed(1)
@@ -55,23 +59,23 @@ pdf_class1_hand_calc_5_samples = gaussian_pdf(pos_class1, mean_class1_hand_calc,
 pdf_class2_hand_calc_5_samples = gaussian_pdf(pos_class2, mean_class2_hand_calc, covariance_class2_hand_calc)
 
 # plotting the results for sample size = 5
-plt.figure(1)
-contour_class1 = plt.contourf(x_class1, y_class1, pdf_class1_hand_calc_5_samples)
-plt.colorbar(contour_class1, label='PDF Value')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.title('Gaussian Random Data and Equiprobability Contours')
-plt.grid()
-plt.show()
+# plt.figure(1)
+# contour_class1 = plt.contourf(x_class1, y_class1, pdf_class1_hand_calc_5_samples)
+# plt.colorbar(contour_class1, label='PDF Value')
+# plt.xlabel('X-axis')
+# plt.ylabel('Y-axis')
+# plt.title('Gaussian Random Data and Equiprobability Contours')
+# plt.grid()
+# plt.show()
 
-plt.figure(2)
-contour_class2 = plt.contourf(x_class2, y_class2, pdf_class2_hand_calc_5_samples)
-plt.colorbar(contour_class2, label='PDF Value')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.title('Gaussian Random Data and Equiprobability Contours')
-plt.grid()
-plt.show()
+# plt.figure(2)
+# contour_class2 = plt.contourf(x_class2, y_class2, pdf_class2_hand_calc_5_samples)
+# plt.colorbar(contour_class2, label='PDF Value')
+# plt.xlabel('X-axis')
+# plt.ylabel('Y-axis')
+# plt.title('Gaussian Random Data and Equiprobability Contours')
+# plt.grid()
+# plt.show()
 
 # Sample size = 100
 
@@ -106,22 +110,39 @@ print(class2_hundred_samples_cov, '\n')
 print(class2_eig_vals, '\n')
 print(class2_eig_vecs, '\n')
 
-plt.figure(3)
-contour_class1_hundred_samples = plt.contourf(x_class1, y_class1, pdf_class1_hundred_samples)
-# plt.scatter(data_class1_100_samples[:,0], data_class1_100_samples[:,1])
-plt.colorbar(contour_class1_hundred_samples, label='PDF Value')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.title('Gaussian Random Data and Equiprobability Contours')
-plt.grid()
-plt.show()
+# plt.figure(3)
+# contour_class1_hundred_samples = plt.contourf(x_class1, y_class1, pdf_class1_hundred_samples)
+# # plt.scatter(data_class1_100_samples[:,0], data_class1_100_samples[:,1])
+# plt.colorbar(contour_class1_hundred_samples, label='PDF Value')
+# plt.xlabel('X-axis')
+# plt.ylabel('Y-axis')
+# plt.title('Gaussian Random Data and Equiprobability Contours')
+# plt.grid()
+# plt.show()
 
-plt.figure(4)
-contour_class2_hundred_samples = plt.contourf(x_class2, y_class2, pdf_class2_hundred_samples)
-# plt.scatter(data_class2_100_samples[:,0], data_class2_100_samples[:,1])
-plt.colorbar(contour_class2_hundred_samples, label='PDF Value')
+# plt.figure(4)
+# contour_class2_hundred_samples = plt.contourf(x_class2, y_class2, pdf_class2_hundred_samples)
+# # plt.scatter(data_class2_100_samples[:,0], data_class2_100_samples[:,1])
+# plt.colorbar(contour_class2_hundred_samples, label='PDF Value')
+# plt.xlabel('X-axis')
+# plt.ylabel('Y-axis')
+# plt.title('Gaussian Random Data and Equiprobability Contours')
+# plt.grid()
+# plt.show()
+
+##################################################################################################
+
+# Exercise 2
+
+x = np.linspace(-1, 8, 1000)
+
+plt.figure(5)
+plt.scatter(data_class1[:,0], data_class1[:,1])
+plt.scatter(data_class2[:,0], data_class2[:,1])
+plt.legend(["Class 1", "Class 2"])
+plt.plot(x, (1.12*x+59.55)/8.53, '-g')
 plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
-plt.title('Gaussian Random Data and Equiprobability Contours')
+plt.title('MED Classifier, Sample Size = 5')
 plt.grid()
 plt.show()
