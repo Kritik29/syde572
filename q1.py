@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sympy as sym
 
 ############################################################################
 
@@ -135,14 +136,38 @@ print(class2_eig_vecs, '\n')
 # Exercise 2
 
 x = np.linspace(-1, 8, 1000)
+x_100_samples = np.linspace(-3, 12, 1000)
 
-plt.figure(5)
-plt.scatter(data_class1[:,0], data_class1[:,1])
-plt.scatter(data_class2[:,0], data_class2[:,1])
+# plt.figure(5)
+# plt.scatter(data_class1[:,0], data_class1[:,1])
+# plt.scatter(data_class2[:,0], data_class2[:,1])
+# plt.legend(["Class 1", "Class 2"])
+# plt.plot(x, (1.12*x+59.55)/8.53, '-g')
+# plt.xlabel('X-axis')
+# plt.ylabel('Y-axis')
+# plt.title('MED Classifier, Sample Size = 5')
+# plt.grid()
+# plt.show()
+
+x1 = sym.Symbol('x1')
+x2 = sym.Symbol('x2')
+
+X = np.array([x1, x2])
+
+g1 = -1*np.matmul(class1_hundred_samples_mean.T, X) + 0.5*np.matmul(class1_hundred_samples_mean.T, class1_hundred_samples_mean)
+g2 = -1*np.matmul(class2_hundred_samples_mean.T, X) + 0.5*np.matmul(class2_hundred_samples_mean.T, class2_hundred_samples_mean)
+
+g = sym.solve(g1-g2, x2)
+
+print("MED decision boundary, 100 samples: \n", g)
+
+plt.figure(6)
+plt.scatter(data_class1_100_samples[:,0], data_class1_100_samples[:,1])
+plt.scatter(data_class2_100_samples[:,0], data_class2_100_samples[:,1])
 plt.legend(["Class 1", "Class 2"])
-plt.plot(x, (1.12*x+59.55)/8.53, '-g')
+plt.plot(x_100_samples, (10.702-(0.569*x_100_samples)), '-g')
 plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
-plt.title('MED Classifier, Sample Size = 5')
+plt.title('MED Classifier, Sample Size = 100')
 plt.grid()
 plt.show()
