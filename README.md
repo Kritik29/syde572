@@ -1,4 +1,4 @@
-# Transfer Learning for Few-Shot Classification
+# Project: Transfer Learning for Few-Shot Classification
 
 For this transfer learning project, I used a pretrained **ResNet18** network and **fine-tuned the hyperparameters** for a 
 **few shot classification** task. Each class of images only had 5 images per class to train on.
@@ -14,5 +14,7 @@ A single **linear fully connected layer** was sufficient.
 With this hyper-parameter tuning, my optimized ResNet18 model performed **best in a Kaggle competition**, with an **accuracy of 99.4%**
 
 **The full project writeup and code can be found in:** ```k3kausha_project_submission``` 
+
+**For other cool neural network related math and code, check out the other folders too!**
 
 ![kaggle leaderboard](kaggle.png)
